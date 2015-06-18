@@ -66,6 +66,7 @@ app.get('/sina_auth_cb', function (req, res, next) {
     sina.oauth.accesstoken(req.query.code , function (error, data){
         if(!error){
             access_token = data.access_token; 
+            console.log(data.access_token);
             sina.users.show({
                 source:config.sina.app_key,
                 uid:data.uid,
